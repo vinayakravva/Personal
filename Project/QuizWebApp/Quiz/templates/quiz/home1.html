@@ -1,0 +1,212 @@
+{%load static%}
+<html>
+
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{%static 'quiz.css'%}">
+    <script type="text/javascript" src="{%static 'quiz.js'%}"></script>
+</head>
+<body style="background: whitesmoke;">
+    <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+        <a class="navbar-brand mr-4" href="/">Online Quiz</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+        <span id="hello-msg">Hello, {{request.user}}&nbsp;</span>
+        <span><a href="{%url 'logout'%}">&nbsp;Logout</a></span>
+        </div>
+      </div>
+    </nav>
+  </header><br>
+  <br>
+  <br>
+    <h2 style="text-align: center;"> Online quiz Started</h2>
+    
+      <main role="main" class="container">
+    <form name="quiz" id="quiz">
+        <div>
+            <p>Q 1 - What is output for following code −
+                y = [4, 5,1j]
+                y.sort()
+            </p> 
+            <p><input type="radio" name="question1" value="[1j,4,5]">A-[1j,4,5]</p>
+            <p><input type="radio" name="question1" value="[5,4,1j]">B-[5,4,1j]</p>
+            <p><input type="radio" name="question1" value="[4,5,1j]">c-[4,5,1j]</p>
+            <p><input type="radio" name="question1" value="type error">d-type error</p>
+        </div>
+
+        <div>
+            <p>Q 2 -Name the error that doesn’t cause program to stop/end, but the output is not the desired result or
+                is incorrect.</p>
+            <p><input type="radio" name="question2" value="Syntax error">A-Syntax error</p>
+            <p><input type="radio" name="question2" value="Runtime error">B-Runtime error</p>
+            <p><input type="radio" name="question2" value="Logical error">c-Logical error</p>
+            <p><input type="radio" name="question2" value="All of the above">d-All of the above</p>
+        </div>
+
+        <div>
+            <p>Q 3 - What is output for −
+
+                2 * 2 **3
+            </p>
+            <p><input type="radio" name="question3" value="12">A-12</p>
+            <p><input type="radio" name="question3" value="64">B-64</p>
+            <p><input type="radio" name="question3" value="16">c-16</p>
+            <p><input type="radio" name="question3" value="36">d-36</p>
+        </div>
+
+        <div>
+            <p>Q 4 - What is the output of the code?
+
+                def f():
+                global z
+                print('z is: ', z)
+                z=50
+                print('new value of global z is: ', z)
+
+                f()
+                print('Value of z is: ', z)
+            </p>
+            <p><input type="radio" name="question4" value="z is 100 ,new value of global z is:100 ,value of
+                z is 100">A-z is 100 ,new value of global z is:100 ,value of
+                z is 100</p>
+            <p><input type="radio" name="question4" value="z is 100 ,new value of global z is:100 ,value of
+                z is 50">B-z is 100 ,new value of global z is:100 ,value of
+                z is 50</p>
+            <p><input type="radio" name="question4" value="z is 100 ,new value of global z is:50,value of
+                z is 100">c-[z is 100 ,new value of global z is:50 ,value of
+                z is 100</p>
+            <p><input type="radio" name="question4" value="z is 100 ,new value of global z is:50 ,value of
+                z is 50">d-z is 100 ,new value of global z is:50 ,value of
+                z is 50</p>
+        </div>
+        <div>
+            <p>Q 5 - What is the output for −'you are doing well' [2:999]</p>
+            <p><input type="radio" name="question5" value="you are going well">A-you are going well</p>
+            <p><input type="radio" name="question5" value="''">B-''</p>
+            <p><input type="radio" name="question5" value="Index error">c-Index error</p>
+            <p><input type="radio" name="question5" value="A'u are doing well'">d-'u are doing well'</p>
+        </div>
+        <div>
+            <p>Q 6 - What happens in the below code?
+
+                class A:
+                def __init__(self, i=100):
+                self.i=i
+                class B(A):
+                def __init__(self,j=0):
+                self.j=j
+                def main():
+                b= B()
+                print(b.i)
+                print(b.j)
+                main() </p>
+            <p><input type="radio" name="question6" value="Class B inherits all the data fields of class A.">A-Class B
+                inherits all the data fields of class A.</p>
+            <p><input type="radio" name="question6" value="Class B needs an Argument.">B - Class B needs an Argument.
+            </p>
+            <p><input type="radio" name="question6" value="The data field ‘j’ cannot be accessed by object b.">C - The
+                data field ‘j’ cannot be accessed by object b.</p>
+            <p><input type="radio" name="question6"
+                    value="Class B is inheriting class A but the data field ‘i’ in A cannot be inherited.">D - Class B
+                is inheriting class A but the data field ‘i’ in A cannot be inherited.</p>
+        </div>
+        <div>
+            <p>Q 7 - Suppose we are given with two sets(s1&s2) then what is the output of the code − S1 + S2 </p>
+            <p><input type="radio" name="question7" value="Adds the elements of the both the sets.">A - Adds the
+                elements of the both the sets.</p>
+            <p><input type="radio" name="question7" value="Removes the repeating elements and adds both the sets.">B -
+                Removes the repeating elements and adds both the sets.</p>
+            <p><input type="radio" name="question7" value="It is an illegal command.">C - It is an illegal command.</p>
+            <p><input type="radio" name="question7" value="Output will be stored in S1.">D - Output will be stored in
+                S1.</p>
+        </div>
+        <div>
+            <p>Q 8 - Which code is used to open a file for binary writing?</p>
+            <p><input type="radio" name="question8" value="w">A - w</p>
+            <p><input type="radio" name="question8" value="wb">B - wb</p>
+            <p><input type="radio" name="question8" value="r+">C - r+</p>
+            <p><input type="radio" name="question8" value="a">D - a</p>
+        </div>
+        <div>
+            <p>Q 9 - Using the pack manager, how you can you put the components in a container in the same row?</p>
+            <p><input type="radio" name="question9" value="Component.pack(side= ''LEFT'')">A -
+                Component.pack(side=''LEFT'')</p>
+            <p><input type="radio" name="question9" value="Component.pack(''Left '')">B - Component.pack(''Left '')</p>
+            <p><input type="radio" name="question9" value="Component.pack(side=LEFT)">C - Component.pack(side=LEFT)</p>
+            <p><input type="radio" name="question9" value="Component.pack(Left-side)">D - Component.pack(Left-side)</p>
+        </div>
+        <div>
+            <p>Q 10 - Which of the following is a Python tuple?</p>
+            <p><input type="radio" name="question10" value="[1, 2, 3] ">A- [1, 2, 3] </p>
+            <p><input type="radio" name="question10" value="(1, 2, 3)">B-(1, 2, 3)</p>
+            <p><input type="radio" name="question10" value="{1, 2, 3}">c-{1, 2, 3}</p>
+            <p><input type="radio" name="question10" value="{}">d-{}</p>
+        </div>
+        <div>
+            <p>Q 11-What will be the output of the following Python code?
+
+                >>>t=(1,2,4,3)
+
+                >>>t[1:3]</p>
+            <p><input type="radio" name="question11" value="(1, 2)">A-(1, 2)</p>
+            <p><input type="radio" name="question11" value="(1, 2, 4)">B-(1, 2, 4)</p>
+            <p><input type="radio" name="question11" value="(2, 4)">c-(2, 4)</p>
+            <p><input type="radio" name="question11" value="(2, 4,3)">d-(2, 4,3)</p>
+        </div>
+        <div>
+            <p>Q 12 - What will be the output of the following Python code?
+
+                d = {"john":40, "peter":45}
+
+                d["john"]</p>
+            <p><input type="radio" name="question12" value="40">A- 40</p>
+            <p><input type="radio" name="question12" value="45">B - 45 </p>
+            <p><input type="radio" name="question12" value="john">c- john </p>
+            <p><input type="radio" name="question12" value="peter">d- peter</p>
+        </div>
+        <div>
+            <p>Q 13 - What is the output when we execute list(“hello”)?</p>
+            <p><input type="radio" name="question13" value=" [‘h’, ‘e’, ‘l’, ‘l’, ‘o’] ">A- [‘h’, ‘e’, ‘l’, ‘l’, ‘o’]
+            </p>
+            <p><input type="radio" name="question13" value="[‘hello’] ">B-[‘hello’] </p>
+            <p><input type="radio" name="question13" value="[‘llo’] ">c-[‘llo’] </p>
+            <p><input type="radio" name="question13" value="[‘olleh’] ">d-[‘olleh’] </p>
+        </div>
+        <div>
+            <p>Q 14 - Suppose listExample is [‘h’,’e’,’l’,’l’,’o’], what is len(listExample)?</p>
+            <p><input type="radio" name="question14" value="4">A-4</p>
+            <p><input type="radio" name="question14" value="5">B-5</p>
+            <p><input type="radio" name="question14" value="error">c-error</p>
+            <p><input type="radio" name="question14" value="All of the above">d-All of the above</p>
+        </div>
+        <div>
+            <p>Q 15 - Suppose list1 is [2445,133,12454,123], what is max(list1)?</p>
+            <p><input type="radio" name="question15" value="2445">A-2445</p>
+            <p><input type="radio" name="question15" value="133">B-133</p>
+            <p><input type="radio" name="question15" value="12454">c-12454</p>
+            <p><input type="radio" name="question15" value="123">d-123</p>
+        </div>
+        <div>
+
+
+
+            <input type="button" name="" value="submit" id="button" onclick="check()">
+    </form>
+    </main>
+
+</body>
+
+</html>

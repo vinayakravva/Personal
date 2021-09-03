@@ -1,0 +1,42 @@
+{%extends "blog/base.html" %}
+{%block content%}
+<h1>{{obj.name}}</h1>
+<hr>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+    Take a Quiz
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Quiz Web-App</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body-confirm"></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="h1">Quiz List</div>
+  <hr>
+   {%for obj in obj_list%}
+   <button class="btn btn-link modal-button" data-pk="{{obj.pk}}" data-quiz="{{obj.name}}" data-questions="{{obj.number_of_question}}"data-diffculty="{{obj.difficulty}}"data-time="{{obj.time}}"data-pass="{{obj.required_score}}"data-toggle="modal" data-target="quizModal">
+      <p>{{obj.name}}</p></button>
+   </button>
+   {%endfor%}
+{%endblock content%}
+{%block script%}
+ <script>
+     const modalBtns=document.getElementsByClassName('modal-button')
+    modalBtns.forEach(modalBtn.addEventListener('click',()=>{console.log(modalBtn)}))
+ </script>
+{%endblock script%}
+

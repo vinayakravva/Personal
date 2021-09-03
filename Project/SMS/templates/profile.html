@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{%block content%}
+<form>
+    <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value=""><br><br>
+  <label for ="gender">Gender</label>
+  <select id="gender" name="gender">
+    <option value="Male" selected>Male</option>
+    <option value="Female">Female</option>
+   </select>
+   <br>
+   <label for="address">Address:</label>
+   <textarea rows='5' cols='15' name="address">
+       Enter Address ....
+   </textarea><br>
+   <input type="file" id="myFile" name="filename">
+{%endblock%}
+</form>
